@@ -3,10 +3,11 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <title>Computer Vision Course Project
-  | ECE, Virginia Tech | Fall 2021: ECE 4554/5554</title>
+  | ECE, Virginia Tech | Fall 2025: ECE 4554/5554</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="description" content="Enhancing Plant Disease Detection using Computer Vision Algorithms Project Proposal">
+  <meta name="author" content="Steven An, Vikram Muruganandam, Youngjoon Park">
+
 
 <!-- Le styles -->  
   <link href="css/bootstrap.css" rel="stylesheet">
@@ -34,76 +35,219 @@ color: #FF9900;
 <div class="page-header">
 
 <!-- Title and Name --> 
-<h1>Your Title Here</h1> 
-<span style="font-size: 20px; line-height: 1.5em;"><strong>Names of Team Members Here</strong></span><br>
-<span style="font-size: 18px; line-height: 1.5em;">Fall 2021 ECE 4554/5554 Computer Vision: Course Project</span><br>
+<h1>Enhancing Plant Disease Detection using Computer Vision Algorithms</h1> 
+<span style="font-size: 20px; line-height: 1.5em;"><strong>Steven An, Vikram Muruganandam, Youngjoon Park</strong></span><br>
+<span style="font-size: 18px; line-height: 1.5em;">ECE 4554/5554 Computer Vision: Course Project, Fall 2025</span><br>
 <span style="font-size: 18px; line-height: 1.5em;">Virginia Tech</span>
 <hr>
 
-Please see <a href="http://vision.cs.utexas.edu/projects/adapted_attributes/">this</a> for an example of how to lay out the various details of your project. You may need to provide more details than this, because you will not be submitting an associated paper to accompany the webpage. So the page should be self-contained.
+<img src="diseased_plant.jpg" alt="Image of diseased plant leaf.">
+<br><br>
 
 <!-- Goal -->
 <h3>Abstract</h3>
-
-One or two sentences on the motivation behind the problem you are solving. One or two sentences describing the approach you took. One or two sentences on the main result you obtained.
-<br><br>
-<!-- figure -->
+<p>
+This project focuses on improving plant disease detection through enhanced image preprocessing techniques. 
+Instead of building a new disease classification model, the goal is to test whether applying computer vision methods, such as color space transformation, 
+noise reduction, edge enhancement, and histogram equalization, can improve the accuracy of existing deep learning models. The team will analyze how different 
+preprocessing approaches affect the model’s ability to recognize leaf disease patterns. By comparing results before and after applying these techniques, 
+the project aims to show how proper preprocessing can lead to better computer vision performance and more reliable plant disease detection.
+</p>
+<br>
+<!-- figure 
 <h3>Teaser figure</h3>
 A figure that conveys the main idea behind the project or the main application being addressed.
 <br><br>
-<!-- Main Illustrative Figure --> 
+-->
+<!-- Main Illustrative Figure
 <div style="text-align: center;">
 <img style="height: 200px;" alt="" src="mainfig.png">
 </div>
-
-<br><br>
+ --> 
 <!-- Introduction -->
-<h3>Introduction</h3>
-Motivation behind the problem you are solving, what applications it has, any brief background on the particular domain you are working in (if not regular RBG photographs), etc. If you are using a new way to solve an existing problem, briefly mention and describe the existing approaches and tell us how your approach is new.
+<h3>Project Description</h3>
+<p>
+The Plant Disease Detection project aims to build upon existing plant disease  detection systems by exploring and implementing computer vision 
+techniques to improve accuracy, robustness, and generalization. Previous work in this area has successfully demonstrated the use of CNNs to 
+classify plant diseases from leaf images. However, challenges such as variations in lighting, background noise, image quality, and class 
+imbalance still limit real-world performance.
+</p>
 
-<br><br>
+<p>
+The goal of this project is to evaluate and enhance existing models through improved preprocessing, feature extraction, and model optimization 
+techniques. Specifically, we will apply and compare methods such as image segmentation, data augmentation, edge detection, color space transformation, 
+and feature enhancement filters to determine which approaches lead to the most accurate and reliable disease classification results.
+</p>
+
+<br>
 <!-- Approach -->
 <h3>Approach</h3>
-Describe very clearly and systematically your approach to solve the problem. Tell us exactly what existing implementations you used to build your system. Tell us what obstacles you faced and how you addressed them. Justify any design choices or judgment calls you made in your approach.
+<p>
+  The team will build on an existing plant disease detection system that uses a Convolutional Neural Network (CNN) 
+  for image classification. Instead of creating a new model, the focus will be on using various methods of image preprocessing
+  to improve the detection rate.
+</p>
+<p>
+  Two training pipelines will be used: one with raw images as the baseline, and another with images processed
+  using computer vision techniques such as color space transformation, Sobel, Canny, and Laplacian 
+  edge detection, histogram equalization, texture analysis. The same CNN architecture will be used for both to ensure a fair
+  comparison between differently processed images.
+</p>
+<p>
+  The goal is to find out the extent to which different preprocessing steps improve the model's accuracy and reliability. 
+  The main challenge will be adjusting these methods to enhance disease features without distorting the image and making it 
+  unrecognizable to the model.Visualization tools like Grad-CAM will be used to confirm whether preprocessing helps the 
+  model correctly focus diseased areas.
+</p>
+<br>
+
+<!-- Plans -->
+<h3>Plans for Experimantation</h3>
+<p>
+  The team will begin the project by using two publicly available datasets found through Kaggle: PlantVillage 
+  and New Plant Diseases Dataset. Both datasets contain labeled RGB images of healthy and diseased crop leaves
+  across multiple plant species. Each dataset has approximately 87,000 images categorized into 38 different classes, 
+  divided into 80% training and 20% validation sets. Both datasets were created through offline augmentation 
+  from the original PlantVillage dataset, ensuring balanced class representation and good variety in lighting 
+  and leaf position. A separate set of 33 test images is also provided for final evaluation.
+</p>
+<p>
+  These datasets are well-suited for plant disease classification tasks and will serve as the foundation for 
+  testing how different preprocessing techniques affect deep learning performance. The datasets already provide
+  sufficient diversity in plant type, health condition, and image quality.
+</p>
+<p>
+  The team will build on an existing implementation from Kaggle titled <a href="https://www.kaggle.com/datasets/vipoooool/new-plant-diseases-dataset" >“Plant Disease Classification - ResNet (99.2%)” 
+  by Samir Bhattarai</a>, which uses a ResNet-9 architecture trained in PyTorch. This notebook demonstrates 
+  how a convolutional neural network can achieve high accuracy on the PlantVillage dataset. We will use 
+  this code as our baseline model and compare its performance to our own modified pipeline that includes
+  added preprocessing methods.
+</p>
+<p>
+  All preprocessing and experiment scripts will be written by the team using Python and OpenCV for image 
+  processing. The model training and evaluation will be done using PyTorch, and experiments will run on Google 
+  Colab, local system, or VT Advanced Research Center (ARC). We will record training accuracy, validation accuracy, loss curves, 
+  and visualizations for analysis.
+</p>
+
+<br>
+
+<h4>
+  Project Outline
+</h4>
+<ol>
+  <li><strong>Experimental Setup</strong>
+    <ul>
+      <li>
+        Datasets: PlantVillage and New Plant Diseases Dataset
+      </li>
+      <li>
+        Model Architecture: ResNet-9
+      </li>
+      <li>
+        Implementation Tools: Python, Google Colab/Jupyter Notebook, PyTorch, OpenCV, NumPy, Matplotlib
+      </li>
+      <li>
+        Hardware: Google Colab GPU, local system, or VT Advanced Research Center (ARC)
+      </li>
+      <li>
+        Evaluation Metrics: Accuracy, Precision, Recall, F1-score, and Confusion Matrix
+      </li>
+    </ul>
+  </li>
+
+  <br>
+
+  <li><strong>List of Experiments</strong>
+    <ul>
+      <li>
+        Baseline Model: Reproduce the ResNet-9 results using the original Kaggle code and dataset.
+      </li>
+      <li>
+        Color Space Comparison: Test RGB, HSV, and LAB color-space transformations to analyze which color representation improves classification.
+      </li>
+      <li>
+        Noise Reduction Study: Apply Gaussian and median filters to evaluate how removing background noise affects accuracy.      </li>
+      <li>
+        Contrast and Edge Enhancement: Use histogram equalization, Sobel/Laplacian filters, and basic texture analysis to highlight disease features.
+      </li>
+      <li>
+        Combined Preprocessing Pipeline: Combine the best-performing preprocessing steps and compare its results against the baseline model.
+      </li>
+    </ul>
+  </li>
+
+  <br>
+
+  <li><strong>Expected Outcomes</strong>
+    <ul>
+      <li>
+        The team expects that adding preprocessing techniques will lead to improved accuracy and more 
+        consistent predictions compared to the baseline ResNet-9 model trained on raw images. 
+        Visualization results are expected to show that enhanced preprocessing helps the model detect and
+        focus on diseased areas more accurately. However, it is uncertain which individual techniques 
+        will have the greatest effect, or whether combining multiple methods will cause
+        over-enhancement that reduces performance due to straying too far away from the images the model was
+        trained on.
+      </li>
+    </ul>
+  </li>
+
+  <br>
+
+  <li><strong>Definition of Success</strong>
+    <ul>
+      <li>
+        The modified preprocessing pipeline achieves higher accuracy than the baseline ResNet-9 model.
+      </li>
+      <li>
+        Visualizations show better focus on diseased leaf areas.
+      </li>
+      <li>
+        The results clearly demonstrate that computer vision-based preprocessing can improve model 
+        reliability and overall performance in plant disease detection.
+      </li>
+    </ul>
+  </li>
+</ol>
 
 <br><br>
-<!-- Results -->
-<h3>Experiments and results</h3>
-Provide details about the experimental set up (number of images/videos, number of datasets you experimented with, train/test split if you used machine learning algorithms, etc.). Describe the evaluation metrics you used to evaluate how well your approach is working. Include clear figures and tables, as well as illustrative qualitative examples if appropriate. Be sure to include obvious baselines to see if your approach is doing better than a naive approach (e.g. for classification accuracy, how well would a classifier do that made random decisions?). Also discuss any parameters of your algorithms, and tell us how you set the values of those parameters. You can also show us how the performance varies as you change those parameter values. Be sure to discuss any trends you see in your results, and explain why these trends make sense. Are the results as expected? Why?
 
-<br><br>
-
-<!-- Main Results Figure --> 
+<!-- Main Results Figure
 <div style="text-align: center;">
 <img style="height: 300px;" alt="" src="results.png">
 </div>
 <br><br>
+--> 
 
-<!-- Results -->
+<!-- Results 
 <h3>Qualitative results</h3>
 Show several visual examples of inputs/outputs of your system (success cases and failures) that help us better understand your approach.
 <br><br>
+-->
 
-<!-- Main Results Figure --> 
+<!-- Main Results Figure 
 <div style="text-align: center;">
 <img style="height: 300px;" alt="" src="qual_results.png">
 </div>
 <br><br>
+--> 
 
-<!-- Conclusion -->
+<!-- Conclusion 
 <h3>Conclusion</h3>
 This report has described .... Briefly summarize what you have done. 
 <br><br>
+-->
 
-<!-- References -->
+<!-- References
 <h3>References</h3>
 Provide a list of references to other work that supported your project.
 <br><br>
-
+ -->
 
   <hr>
   <footer> 
-  <p>© Names of Team Members Here</p>
+  <p>©2025 Steven An, Vikram Muruganandam, Youngjoon Park</p>
   </footer>
 </div>
 </div>
