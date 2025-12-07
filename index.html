@@ -55,7 +55,9 @@ and YOLOv8 - in the classification of 23 healthy and diseased plant categories. 
 data scarcity and computational constraints. The study involve rigorous data preprocessing, including resizing and normalization specific to each architecture, alongside data 
 augmentation to improve generalization. Performance was benchmarked using validation accuracy, loss metrics, and inference speed. the results aim to identify the optimal balance between
 computational efficiency and classification accuracy, determining which architecture is best suited for real-world agricultural deployment where both precision and speed are critical.
-</p>
+
+<p></p><strong>Keywords:</strong> Plant Disease Detection, Transfer Learning, ResNet50, EfficientNetV2, YOLOv8, MobileNetV3, Deep Learning, Computer Vision, Multi-class Classification. <p></p>
+
 <br>
 
 <!-- Teaser Figure  -->
@@ -103,25 +105,80 @@ aim to identify which model provides the best performance.
 <!-- Approach -->
 <h3>Approach</h3>
 <p>
-  The team will build on an existing plant disease detection system that uses a Convolutional Neural Network (CNN) 
-  for image classification. Instead of creating a new model, the focus will be on using various methods of image preprocessing
-  to improve the detection rate.
+  <strong>Data Acquisition and Preparation:</strong> The project utilizes the "Plan Disease Detection" dataset obtained here: <a href="https://www.kaggle.com/datasets/karagwaanntreasure/plant-disease-detection"> "Plant Disease Detection"
+    by Karagwa Ann Treasure </a>, which comprises approximately 57,000 images categorized into 23 distinct classes of healthy and diseased leaf samples. Unlike the baseline approach which relied on basic offline augmentation, this project implements
+    a dynamic data pipeline.
+    <ul>
+      <li>
+      <strong>Preprocessing:</strong> Images are automatically resized to match the native input resolution of each specific architecture 
+      (224x224 for ResNet50/YOLOv8s-cls/MobileNetV3-S and 384x384 for EfficientNetV2-S) to preserve feature integrity.
+      </li>
+      <li>
+        <strong>Normalization:</strong> Pixel values are normalized using ImageNet mean and standard deviation statistics (mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]) to ensure compatibility with pre-trained weights.
+      </li>
+      <li>
+        <strong>Split:</strong> The dataset is split into training (80%) and validation (20%) sets to monitor for overfitting during the learning process.
+      </li>
+    </ul>
+
 </p>
 <p>
-  Two training pipelines will be used: one with raw images as the baseline, and another with images processed
-  using computer vision techniques such as color space transformation, Sobel, Canny, and Laplacian 
-  edge detection, histogram equalization, texture analysis. The same CNN architecture will be used for both to ensure a fair
-  comparison between differently processed images.
+  <strong> Comparative Architecture Strategy</strong> This project focuses on comparing the efficacy of three distinct deep learning architectures,
+  each representing a different design philosophy:
+  <ul>
+    <li>
+      <strong>ResNet50:</strong> Serves as the robust baseline, utilizing residual connections to solve the vanishing gradient problem in deep networks.
+    </li>
+    <li>
+      <strong> EfficientNetV2-S:</strong> Represents the state-of-the-art in parameter efficieny, utilizing Fused MBConv layers and compound scaling to achieve high
+      accuracy with fewer parameters.
+    </li>
+    <li>
+      <strong> YOLOv8 (Classification Mode):</strong> Evaluates the trade-off between speed and accuracy, testing whether an architecture optimized for real-time 
+      object detection can perform effectively in a pure classification task.
+    </li>
+    <li>
+      <strong> MobileNetV3-S (The Edge Specialists):</strong> Designed specifically for mobile devices, this architecture utilizes <strong> Neural Architecture Search (NAS)</strong>
+      and <strong> Hard-Swish activation functions</strong> to minimize latency and model size while maintaining competitive accuracy.
+    </li>
+  </ul>
 </p>
+
 <p>
-  The goal is to find out the extent to which different preprocessing steps improve the model's accuracy and reliability. 
-  The main challenge will be adjusting these methods to enhance disease features without distorting the image and making it 
-  unrecognizable to the model.Visualization tools like Grad-CAM will be used to confirm whether preprocessing helps the 
-  model correctly focus diseased areas.
+<strong> Training and Transfer Learning</strong> To overcome the computational cost of training from scratch, <strong> Transfer Learning</strong>
+is applied across all models. The methodology includes:
+  <ul>
+    <li>
+      <strong> Feature Extraction:</strong> The "backbone layers of each model are initialized with weights pre-trained on the ImageNet dataset and frozen.
+    </li>
+    <li>
+      <strong> Fine-Tuning:</strong>The final fully connected classification heads are replaced to match the 23 specific classes. 
+      Only these layers are optimized during the initial training phase using the Adam optimizer and Cross-Entropy Loss.
+    </li>
+    <li>
+      <strong>Hardware Acceleration:</strong> Training is executed on an NVIDIA A100 GPU via Google Colab to handle large bath sizes and high-resolution inputs efficiently.
+    </li>
+  </ul>
+</p>
+
+<p>
+<strong> Performance Evaluation</strong> The models will be evaluated and ranked bsaeed on three key metrics:
+  <ol>
+    <li>
+      <strong> Validation Accuracy:</strong> To measure the model's ability to generalize unseen data.
+    </li>
+    <li>
+      <strong> Training vs. Validation Loss:</strong> To diagnose overfitting or underfitting.
+    </li>
+    <li>
+      <strong> Inference Efficieny:</strong> To assess the computational weight of each model to determine suitability for 
+      deployment on resource-constrained agricultural devices.
+    </li>
+  </ol>
 </p>
 <br>
 
-<!-- Plans -->
+<!-- Plans
 <h3>Plans for Experimantation</h3>
 <p>
   The team will begin the project by using two publicly available datasets found through Kaggle: PlantVillage 
@@ -151,7 +208,7 @@ aim to identify which model provides the best performance.
 </p>
 
 <br>
-
+ -->
 <!--
 <h4>
   Project Outline
