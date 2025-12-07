@@ -70,18 +70,25 @@ computational efficiency and classification accuracy, determining which architec
 <!-- Introduction -->
 <h3>Introduction</h3>
 
-<p> 
-Plant diseases pose one of the largest threads to global agriculture, impacting food security worldwide through reduced crop yields and causing enormous economic losses. Accurate detection of these
-diseases on a large scalae is critical in ensuring these diseases are caught as soon as possible and before they can cause significant damage. Traditional methods such as manual human inspection are often time consming and labor intensive,
-making it harder to implement regular checking at large scales. Using machine learning to perform these tasks is significantly cheaper, and does not have the same downsides as human inspection. However, ML models often lack accuracy and without a human 
-in the loop to take acountability and due to the financial consequences of a malfunction, many users are hesitant to implement this technology. One method around this is to create and curating models that can achiever higher accuracies in plant desease detection.
-
+<p>
+This project focuses on building an accurate and lightweight plant disease classification system using computer vision techniques.
+While the existing project is using older architectures and datasets, our work takes a more practical approach by
+training and evaluating several recent models on a newer dataset that includes 23 classes of healthy
+and diseased plant leaves.
 </p>
 
 <p>
-To do this, project builds upon existing plant disease detection systems by implementing training various models to perform plant desease detction using the same
-dataset. Then, we will compare the performance of these models to each other, and to previous work implementing a plant desease detection by <a href="https://www.kaggle.com/code/atharvaingle/plant-disease-classification-resnet-99-2/notebook">Atharva Ingle found here</a>,
-that implements plant desease classification using RESNET-9. This model was able to achieve an accuracy of 99.2%, using a similar dataset. We aim to exceed this accuracy using one or more of the models we will be evaluating in this report.
+The main goal of the project is to compare the performance of four widely used architectures: ResNet50, EfficientNetV2-S,
+MobileNetV3-Small, and YOLOv8. In this project, we applied a simple and consistent computer vision preprocessing pipeline across all models,
+including image resizing, normalization, and light data augmentation. Keeping the input images and processing
+steps uniform allows us to fairly compare how each architecture performs under the same visual conditions and
+training setup.
+</p>
+
+<p>
+Throughout the project, we analyze how factors such as model size, transfer learning strategy, and training behavior affect
+classification accuracy. We also look at validation loss, confusion matrices, and overall stability during training. By doing so, we
+aim to identify which model provides the best performance.
 </p>
 
 <br>
