@@ -1,184 +1,242 @@
 <!DOCTYPE html>
-<html lang="en"><head>  
+<html lang="en">
+
+<head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <title>Computer Vision Course Project
-  | ECE, Virginia Tech | Fall 2025: ECE 4554/5554</title>
+    | ECE, Virginia Tech | Fall 2025: ECE 4554/5554</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Enhancing Plant Disease Detection using Computer Vision Algorithms Project Proposal">
+  <meta name="description"
+    content="Enhancing Plant Disease Detection using Computer Vision Algorithms Project Proposal">
   <meta name="author" content="Steven An, Vikram Muruganandam, Youngjoon Park">
 
 
-<!-- Le styles -->  
+  <!-- Le styles -->
   <link href="css/bootstrap.css" rel="stylesheet">
-<style>
-body {
-padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-}
-.vis {
-color: #3366CC;
-}
-.data {
-color: #FF9900;
-}
-</style>
-  
-<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+  <style>
+    body {
+      padding-top: 60px;
+      /* 60px to make the container go all the way to the bottom of the topbar */
+    }
 
-<!-- HTML5 shim, for IE6-8 support of HTML5 elements --><!--[if lt IE 9]>
+    .vis {
+      color: #3366CC;
+    }
+
+    .data {
+      color: #FF9900;
+    }
+  </style>
+
+  <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements --><!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 </head>
 
 <body>
-<div class="container">
-<div class="page-header">
+  <div class="container">
+    <div class="page-header">
 
-<img src="diseased_plant.jpg" alt="Image of diseased plant leaf.">
+      <img src="diseased_plant.jpg" alt="Image of diseased plant leaf.">
 
-<!-- Title and Name --> 
-<h1>Comparative Analysis of Advanced Deep Learning Architectures for Multi-Class Plant Disease Detection</h1> 
-<span style="font-size: 20px; line-height: 1.5em;"><strong>Steven An, Vikram Muruganandam, Youngjoon Park</strong></span><br>
-<span style="font-size: 18px; line-height: 1.5em;">ECE 4554/5554 Computer Vision: Course Project, Fall 2025</span><br>
-<span style="font-size: 18px; line-height: 1.5em;">Virginia Tech</span>
-<hr>
-<span style="font-size: 20px; line-height: 1.5em;">The code for this project can be found on <a href="https://github.com/ECE-4554-Computer-Vision-Group-Project/Code.git">GitHub, here</a>.</span><br>
-<hr>
+      <!-- Title and Name -->
+      <h1>Comparative Analysis of Advanced Deep Learning Architectures for Multi-Class Plant Disease Detection</h1>
+      <span style="font-size: 20px; line-height: 1.5em;"><strong>Steven An, Vikram Muruganandam, Youngjoon
+          Park</strong></span><br>
+      <span style="font-size: 18px; line-height: 1.5em;">ECE 4554/5554 Computer Vision: Course Project, Fall
+        2025</span><br>
+      <span style="font-size: 18px; line-height: 1.5em;">Virginia Tech</span>
+      <hr>
+      <span style="font-size: 20px; line-height: 1.5em;">The code for this project can be found on <a
+          href="https://github.com/ECE-4554-Computer-Vision-Group-Project/Code.git">GitHub, here</a>.</span><br>
+      <hr>
 
-<!-- Goal -->
-<h3>Abstract</h3>
-<p>
-Plant diseases remain a critical threat to global food security, making early and accurate diagnosis essential for effective
-crop management. While traditional manual identification is labor intensive and prone to error, deep learning offers a scalable solution for automated detection.
-This project evaluates and compares the performance of four state-of-the-art convolutional neural network (CNN) architectures - ResNet50, EfficientNetV2-S, MobileNetV3,
-and YOLOv8 - in the classification of 23 healthy and diseased plant categories. Utilizing a transfer learning approach, we leveraged models pre-trained on ImageNet to overcome
-data scarcity and computational constraints. The study involve rigorous data preprocessing, including resizing and normalization specific to each architecture, alongside data 
-augmentation to improve generalization. Performance was benchmarked using validation accuracy, loss metrics, and inference speed. the results aim to identify the optimal balance between
-computational efficiency and classification accuracy, determining which architecture is best suited for real-world agricultural deployment where both precision and speed are critical.
+      <!-- Goal -->
+      <h3>Abstract</h3>
+      <p>
+        Plant diseases remain a critical threat to global food security, making early and accurate diagnosis essential
+        for effective
+        crop management. While traditional manual identification is labor intensive and prone to error, deep learning
+        offers a scalable solution for automated detection.
+        This project evaluates and compares the performance of four state-of-the-art convolutional neural network (CNN)
+        architectures - ResNet50, EfficientNetV2-S, MobileNetV3,
+        and YOLOv8 - in the classification of 23 healthy and diseased plant categories. Utilizing a transfer learning
+        approach, we leveraged models pre-trained on ImageNet to overcome
+        data scarcity and computational constraints. The study involve rigorous data preprocessing, including resizing
+        and normalization specific to each architecture, alongside data
+        augmentation to improve generalization. Performance was benchmarked using validation accuracy, loss metrics, and
+        inference speed. the results aim to identify the optimal balance between
+        computational efficiency and classification accuracy, determining which architecture is best suited for
+        real-world agricultural deployment where both precision and speed are critical.
 
-<p></p><strong>Keywords:</strong> Plant Disease Detection, Transfer Learning, ResNet50, EfficientNetV2, YOLOv8, MobileNetV3, Deep Learning, Computer Vision, Multi-class Classification. <p></p>
+      <p></p><strong>Keywords:</strong> Plant Disease Detection, Transfer Learning, ResNet50, EfficientNetV2, YOLOv8,
+      MobileNetV3, Deep Learning, Computer Vision, Multi-class Classification. <p></p>
 
-<br>
+      <br>
 
-<!-- Teaser Figure  -->
-<h3>Teaser figure</h3>
-<p><p>
-<!-- <br><br> -->
+      <!-- Teaser Figure  -->
+      <h3>Teaser figure</h3>
+      <p>
+      <p>
+        <!-- <br><br> -->
 
-<!-- Main Illustrative Figure -->
-<div style="text-align: center;">
-<img style="height: 200px;" alt="" src="teaser_figure.png">
-<br><br>
-<p style="text-align: left;">As seen in the image above, the image of the apple leaf as been classified as diseased (scabbed).<p>
-</div>
- 
-<!-- Introduction -->
-<h3>Introduction</h3>
-<p> 
-Plant diseases pose one of the largest threads to global agriculture, impacting food security worldwide through reduced crop yields and causing enormous economic losses. Accurate detection of these
-diseases on a large scalae is critical in ensuring these diseases are caught as soon as possible and before they can cause significant damage. Traditional methods such as manual human inspection are often time consming and labor intensive,
-making it harder to implement regular checking at large scales. Using machine learning to perform these tasks is significantly cheaper, and does not have the same downsides as human inspection. However, ML models often lack accuracy and without a human 
-in the loop to take acountability and due to the financial consequences of a malfunction, many users are hesitant to implement this technology. One method around this is to create and curating models that can achiever higher accuracies in plant desease detection.
-</p>
+        <!-- Main Illustrative Figure -->
+      <div style="text-align: center;">
+        <img style="height: 200px;" alt="" src="teaser_figure.png">
+        <br><br>
+        <p style="text-align: left;">As seen in the image above, the image of the apple leaf as been classified as
+          diseased (scabbed).
+        <p>
+      </div>
 
-<p>
-To do this, project builds upon existing plant disease detection systems by implementing training various models to perform plant desease detction using the same
-dataset. Then, we will compare the performance of these models to each other, and to previous work implementing a plant desease detection by <a href="https://www.kaggle.com/code/atharvaingle/plant-disease-classification-resnet-99-2/notebook">Atharva Ingle found here</a>,
-that implements plant desease classification using RESNET-9. This model was able to achieve an accuracy of 99.2%, using a similar dataset. We aim to exceed this accuracy using one or more of the models we will be evaluating in this report.
-</p>
+      <!-- Introduction -->
+      <h3>Introduction</h3>
+      <p>
+        Plant diseases pose one of the largest threads to global agriculture, impacting food security worldwide through
+        reduced crop yields and causing enormous economic losses. Accurate detection of these
+        diseases on a large scalae is critical in ensuring these diseases are caught as soon as possible and before they
+        can cause significant damage. Traditional methods such as manual human inspection are often time consming and
+        labor intensive,
+        making it harder to implement regular checking at large scales. Using machine learning to perform these tasks is
+        significantly cheaper, and does not have the same downsides as human inspection. However, ML models often lack
+        accuracy and without a human
+        in the loop to take acountability and due to the financial consequences of a malfunction, many users are
+        hesitant to implement this technology. One method around this is to create and curating models that can achiever
+        higher accuracies in plant desease detection.
+      </p>
 
-<p>
-The main goal of the project is to compare the performance of four widely used architectures: ResNet50, EfficientNetV2-S,
-MobileNetV3-Small, and YOLOv8. In this project, we applied a simple and consistent computer vision preprocessing pipeline across all models,
-including image resizing, normalization, and light data augmentation. Keeping the input images and processing
-steps uniform allows us to fairly compare how each architecture performs under the same visual conditions and
-training setup.
-</p>
+      <p>
+        To do this, project builds upon existing plant disease detection systems by implementing training various models
+        to perform plant desease detction using the same
+        dataset. Then, we will compare the performance of these models to each other, and to previous work implementing
+        a plant desease detection by <a
+          href="https://www.kaggle.com/code/atharvaingle/plant-disease-classification-resnet-99-2/notebook">Atharva
+          Ingle found here</a>,
+        that implements plant desease classification using RESNET-9. This model was able to achieve an accuracy of
+        99.2%, using a similar dataset. We aim to exceed this accuracy using one or more of the models we will be
+        evaluating in this report.
+      </p>
 
-<p>
-Throughout the project, we analyze how factors such as model size, transfer learning strategy, and training behavior affect
-classification accuracy. We also look at validation loss, confusion matrices, and overall stability during training. By doing so, we
-aim to identify which model provides the best performance.
-</p>
+      <p>
+        The main goal of the project is to compare the performance of four widely used architectures: ResNet50,
+        EfficientNetV2-S,
+        MobileNetV3-Small, and YOLOv8. In this project, we applied a simple and consistent computer vision preprocessing
+        pipeline across all models,
+        including image resizing, normalization, and light data augmentation. Keeping the input images and processing
+        steps uniform allows us to fairly compare how each architecture performs under the same visual conditions and
+        training setup.
+      </p>
 
-<br>
-<!-- Approach -->
-<h3>Approach</h3>
-<p>
-  <strong>Data Acquisition and Preparation:</strong> The project utilizes the "Plan Disease Detection" dataset obtained here: <a href="https://www.kaggle.com/datasets/karagwaanntreasure/plant-disease-detection"> "Plant Disease Detection"
-    by Karagwa Ann Treasure </a>, which comprises approximately 57,000 images categorized into 23 distinct classes of healthy and diseased leaf samples. Unlike the baseline approach which relied on basic offline augmentation, this project implements
-    a dynamic data pipeline.
-    <ul>
-      <li>
-      <strong>Preprocessing:</strong> Images are automatically resized to match the native input resolution of each specific architecture 
-      (224x224 for ResNet50/YOLOv8s-cls/MobileNetV3-S and 384x384 for EfficientNetV2-S) to preserve feature integrity.
-      </li>
-      <li>
-        <strong>Normalization:</strong> Pixel values are normalized using ImageNet mean and standard deviation statistics (mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]) to ensure compatibility with pre-trained weights.
-      </li>
-      <li>
-        <strong>Split:</strong> The dataset is split into training (80%) and validation (20%) sets to monitor for overfitting during the learning process.
-      </li>
-    </ul>
+      <p>
+        Throughout the project, we analyze how factors such as model size, transfer learning strategy, and training
+        behavior affect
+        classification accuracy. We also look at validation loss, confusion matrices, and overall stability during
+        training. By doing so, we
+        aim to identify which model provides the best performance.
+      </p>
 
-</p>
-<p>
-  <strong> Comparative Architecture Strategy</strong> This project focuses on comparing the efficacy of three distinct deep learning architectures,
-  each representing a different design philosophy:
-  <ul>
-    <li>
-      <strong>ResNet50:</strong> Serves as the robust baseline, utilizing residual connections to solve the vanishing gradient problem in deep networks.
-    </li>
-    <li>
-      <strong> EfficientNetV2-S:</strong> Represents the state-of-the-art in parameter efficieny, utilizing Fused MBConv layers and compound scaling to achieve high
-      accuracy with fewer parameters.
-    </li>
-    <li>
-      <strong> YOLOv8 (Classification Mode):</strong> Evaluates the trade-off between speed and accuracy, testing whether an architecture optimized for real-time 
-      object detection can perform effectively in a pure classification task.
-    </li>
-    <li>
-      <strong> MobileNetV3-S (The Edge Specialists):</strong> Designed specifically for mobile devices, this architecture utilizes <strong> Neural Architecture Search (NAS)</strong>
-      and <strong> Hard-Swish activation functions</strong> to minimize latency and model size while maintaining competitive accuracy.
-    </li>
-  </ul>
-</p>
+      <br>
+      <!-- Approach -->
+      <h3>Approach</h3>
+      <p>
+        <strong>Data Acquisition and Preparation:</strong> The project utilizes the "Plan Disease Detection" dataset
+        obtained here: <a href="https://www.kaggle.com/datasets/karagwaanntreasure/plant-disease-detection"> "Plant
+          Disease Detection"
+          by Karagwa Ann Treasure </a>, which comprises approximately 57,000 images categorized into 23 distinct classes
+        of healthy and diseased leaf samples. Unlike the baseline approach which relied on basic offline augmentation,
+        this project implements
+        a dynamic data pipeline.
+      <ul>
+        <li>
+          <strong>Preprocessing:</strong> Images are automatically resized to match the native input resolution of each
+          specific architecture
+          (224x224 for ResNet50/YOLOv8s-cls/MobileNetV3-S and 384x384 for EfficientNetV2-S) to preserve feature
+          integrity.
+        </li>
+        <li>
+          <strong>Normalization:</strong> Pixel values are normalized using ImageNet mean and standard deviation
+          statistics (mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]) to ensure compatibility with pre-trained
+          weights.
+        </li>
+        <li>
+          <strong>Split:</strong> The dataset is split into training (80%) and validation (20%) sets to monitor for
+          overfitting during the learning process.
+        </li>
+      </ul>
 
-<p>
-<strong> Training and Transfer Learning</strong> To overcome the computational cost of training from scratch, <strong> Transfer Learning</strong>
-is applied across all models. The methodology includes:
-  <ul>
-    <li>
-      <strong> Feature Extraction:</strong> The "backbone layers of each model are initialized with weights pre-trained on the ImageNet dataset and frozen.
-    </li>
-    <li>
-      <strong> Fine-Tuning:</strong>The final fully connected classification heads are replaced to match the 23 specific classes. 
-      Only these layers are optimized during the initial training phase using the Adam optimizer and Cross-Entropy Loss.
-    </li>
-    <li>
-      <strong>Hardware Acceleration:</strong> Training is executed on an NVIDIA A100 GPU via Google Colab to handle large bath sizes and high-resolution inputs efficiently.
-    </li>
-  </ul>
-</p>
+      </p>
+      <p>
+        <strong> Comparative Architecture Strategy</strong> This project focuses on comparing the efficacy of three
+        distinct deep learning architectures,
+        each representing a different design philosophy:
+      <ul>
+        <li>
+          <strong>ResNet50:</strong> Serves as the robust baseline, utilizing residual connections to solve the
+          vanishing gradient problem in deep networks.
+        </li>
+        <li>
+          <strong> EfficientNetV2-S:</strong> Represents the state-of-the-art in parameter efficieny, utilizing Fused
+          MBConv layers and compound scaling to achieve high
+          accuracy with fewer parameters.
+        </li>
+        <li>
+          <strong> YOLOv8 (Classification Mode):</strong> Evaluates the trade-off between speed and accuracy, testing
+          whether an architecture optimized for real-time
+          object detection can perform effectively in a pure classification task.
+        </li>
+        <li>
+          <strong> MobileNetV3-S (The Edge Specialists):</strong> Designed specifically for mobile devices, this
+          architecture utilizes <strong> Neural Architecture Search (NAS)</strong>
+          and <strong> Hard-Swish activation functions</strong> to minimize latency and model size while maintaining
+          competitive accuracy.
+        </li>
+      </ul>
+      </p>
 
-<p>
-<strong> Performance Evaluation</strong> The models will be evaluated and ranked bsaeed on three key metrics:
-  <ol>
-    <li>
-      <strong> Validation Accuracy:</strong> To measure the model's ability to generalize unseen data.
-    </li>
-    <li>
-      <strong> Training vs. Validation Loss:</strong> To diagnose overfitting or underfitting.
-    </li>
-    <li>
-      <strong> Inference Efficieny:</strong> To assess the computational weight of each model to determine suitability for 
-      deployment on resource-constrained agricultural devices.
-    </li>
-  </ol>
-</p>
-<br>
+      <p>
+        <strong> Training and Transfer Learning</strong> To overcome the computational cost of training from scratch,
+        <strong> Transfer Learning</strong>
+        is applied across all models. The methodology includes:
+      <ul>
+        <li>
+          <strong> Feature Extraction:</strong> The "backbone layers of each model are initialized with weights
+          pre-trained on the ImageNet dataset and frozen.
+        </li>
+        <li>
+          <strong> Fine-Tuning:</strong>The final fully connected classification heads are replaced to match the 23
+          specific classes.
+          Only these layers are optimized during the initial training phase using the Adam optimizer and Cross-Entropy
+          Loss.
+        </li>
+        <li>
+          <strong>Hardware Acceleration:</strong> Training is executed on an NVIDIA A100 GPU via Google Colab to handle
+          large bath sizes and high-resolution inputs efficiently.
+        </li>
+      </ul>
+      </p>
 
-<!-- Plans
+      <p>
+        <strong> Performance Evaluation</strong> The models will be evaluated and ranked bsaeed on three key metrics:
+      <ol>
+        <li>
+          <strong> Validation Accuracy:</strong> To measure the model's ability to generalize unseen data.
+        </li>
+        <li>
+          <strong> Training vs. Validation Loss:</strong> To diagnose overfitting or underfitting.
+        </li>
+        <li>
+          <strong> Inference Efficieny:</strong> To assess the computational weight of each model to determine
+          suitability for
+          deployment on resource-constrained agricultural devices.
+        </li>
+      </ol>
+      </p>
+      <br>
+
+      <!-- Plans
 <h3>Plans for Experimantation</h3>
 <p>
   The team will begin the project by using two publicly available datasets found through Kaggle: PlantVillage 
@@ -209,7 +267,7 @@ is applied across all models. The methodology includes:
 
 <br>
  -->
-<!--
+      <!--
 <h4>
   Project Outline
 </h4>
@@ -292,102 +350,170 @@ is applied across all models. The methodology includes:
 <br><br>
 -->
 
-<!-- Main Results Figure--> 
-<div style="text-align: center;">
-<img style="height: 300px;" alt="" src="table_result.png">
-</div>
-<br><br>
+      <!-- Main Results Figure-->
+      <div style="text-align: center;">
+        <img style="height: 300px;" alt="" src="table_result.png">
+      </div>
+      <br><br>
 
 
-<!-- Results -->
-<h3>Qualitative results</h3>
-Shows the accuracy and loss curves for best model(YOLOv8) over the training epochs.
-<br><br>
+      <!-- Results -->
+      <h3>Results</h3>
+      <br><br>
 
 
-<!-- Main Results Figure --> 
-<div style="text-align: center;">
-<img style="height: 550px;" alt="" src="yolo_result.png">
-</div>
-<br><br>
+      <!-- Main Results Figure -->
+      <div style="text-align: left; font-size: 25px; margin-top: 1px;">
+        Shows the accuracy and loss curves of models over the training epochs.
+        <br>
+        <div style="text-align: center; font-size: 25px; margin-top: 40px; font-weight: bold;">
+          YOLOv8
+          <br>
+          <img src="yolo_result.png" style="height: 800px;">
+          <br><br>
+        </div>
+      </div>
+      <br><br>
+
+      <div style="text-align: center;">
+        <img style="height: 500px;" alt="" src="resnet_result.png">
+      </div>
+      <br><br>
+
+      <div style="text-align: center;">
+        <img style="height: 500px;" alt="" src="mobile_result.png">
+      </div>
+      <br><br>
+
+      <div style="text-align: center;">
+        <img style="height: 500px;" alt="" src="effi_result.png">
+      </div>
+      <br><br>
+
+      <div style="text-align: left; font-size: 25px; margin-top: 1px;">
+        These confusion matrices illustrate how well the models classified each plant disease class.
+        <br>
+        <div style="text-align: center; font-size: 25px; margin-top: 40px;font-weight: bold;">
+          YOLOv8
+          <br>
+          <img src="yolo_confusion.png" style="height: 600px;">
+          <br><br>
+        </div>
+      </div>
+      <br><br>
+
+      <br><br>
+      <div style="text-align: center; font-size: 25px; margin-top: 1px;font-weight: bold;">
+        ResNet50
+        <br>
+        <div style="text-align: center;">
+          <img style="height: 800px;" alt="" src="resnet_confusion.png">
+        </div>
+      </div>
+      <br><br>
+
+      <br><br>
+      <div style="text-align: center; font-size: 25px; margin-top: 1px;font-weight: bold;">
+        MobileNetV3
+        <br>
+        <div style="text-align: center;">
+          <img style="height: 800px;" alt="" src="mobile_confusion.png">
+        </div>
+      </div>
+      <br><br>
+
+      <br><br>
+      <div style="text-align: center; font-size: 25px; margin-top: 1px;font-weight: bold;">
+        EfficientNetV2
+        <br>
+        <div style="text-align: center;">
+          <img style="height: 800px;" alt="" src="effi_confusion.png">
+        </div>
+      </div>
+      <br><br>
 
 
-<!-- Conclusion  -->
-<h3>Qualitative Results</h3>
-<p>
-  INSERT TEXT HERE
-</p>
-<div style="text-align: center;">
-<img style="height: 550px;" alt="" src="leaf_output.webp">
-</div>
-<br><br>
+      <!-- Conclusion  -->
+      <h3>Qualitative Results</h3>
+      <p>
+        INSERT TEXT HERE
+      </p>
+      <div style="text-align: center;">
+        <img style="height: 550px;" alt="" src="leaf_output.webp">
+      </div>
+      <br><br>
 
-<!-- Conclusion  -->
-<h3>Conclusion</h3>
-<p>
-  
-</p>
+      <!-- Conclusion  -->
+      <h3>Conclusion</h3>
+      <p>
 
-
-<br><br>
+      </p>
 
 
+      <br><br>
 
-<!-- References -->
-<h3>References</h3>
+      <!-- References -->
+      <h3>References</h3>
 
-<h4>Related Work</h4>
-<ul>
-  <li>
-    Atharva Ingle, “Plant Disease Classification - ResNet 99.2%,” 
-    <a href="https://www.kaggle.com/code/atharvaingle/plant-disease-classification-resnet-99-2/notebook" target="_blank">
-      Kaggle Notebook
-    </a>.
-  </li>
-</ul>
+      <h4>Related Work</h4>
+      <ul>
+        <li>
+          Atharva Ingle, “Plant Disease Classification - ResNet 99.2%,”
+          <a href="https://www.kaggle.com/code/atharvaingle/plant-disease-classification-resnet-99-2/notebook"
+            target="_blank">
+            Kaggle Notebook
+          </a>.
+        </li>
+      </ul>
 
-<h4>Dataset</h4>
-<ul>
-  <li>
-    Karagwa Ann Treasure, “Plant Disease Detection Dataset,” 
-    <a href="https://www.kaggle.com/datasets/karagwaanntreasure/plant-disease-detection/data" target="_blank">
-      Kaggle Dataset
-    </a>.
-  </li>
-</ul>
+      <h4>Dataset</h4>
+      <ul>
+        <li>
+          Karagwa Ann Treasure, “Plant Disease Detection Dataset,”
+          <a href="https://www.kaggle.com/datasets/karagwaanntreasure/plant-disease-detection/data" target="_blank">
+            Kaggle Dataset
+          </a>.
+        </li>
+      </ul>
 
-<h4>Model Architectures</h4>
-<ul>
-  <li>
-    Howard, A. et al., “Searching for MobileNetV3,” 2019.  
-    <a href="https://arxiv.org/abs/1905.02244" target="_blank">https://arxiv.org/abs/1905.02244</a>
-  </li>
+      <h4>Model Architectures</h4>
+      <ul>
+        <li>
+          Howard, A. et al., “Searching for MobileNetV3,” 2019.
+          <a href="https://arxiv.org/abs/1905.02244" target="_blank">https://arxiv.org/abs/1905.02244</a>
+        </li>
 
-  <li>
-    Tan, M., and Le, Q. V., “EfficientNetV2: Smaller Models and Faster Training,” 2021.  
-    <a href="https://arxiv.org/abs/2104.00298" target="_blank">https://arxiv.org/abs/2104.00298</a>
-  </li>
+        <li>
+          Tan, M., and Le, Q. V., “EfficientNetV2: Smaller Models and Faster Training,” 2021.
+          <a href="https://arxiv.org/abs/2104.00298" target="_blank">https://arxiv.org/abs/2104.00298</a>
+        </li>
 
-  <li>
-    Yaseen, M., “What is YOLOv8: An In-Depth Exploration of the Internal Features of the Next-Generation Object Detector,” 2024.  
-    <a href="https://arxiv.org/abs/2408.15857" target="_blank">https://arxiv.org/abs/2408.15857</a>
-  </li>
+        <li>
+          Yaseen, M., “What is YOLOv8: An In-Depth Exploration of the Internal Features of the
+          Next-Generation
+          Object
+          Detector,” 2024.
+          <a href="https://arxiv.org/abs/2408.15857" target="_blank">https://arxiv.org/abs/2408.15857</a>
+        </li>
 
-  <li>
-    He, K., Zhang, X., Ren, S., and Sun, J., “Deep Residual Learning for Image Recognition,” 2015.  
-    <a href="https://arxiv.org/abs/1512.03385" target="_blank">https://arxiv.org/abs/1512.03385</a>
-  </li>
-</ul>
-<br><br>
+        <li>
+          He, K., Zhang, X., Ren, S., and Sun, J., “Deep Residual Learning for Image Recognition,” 2015.
+          <a href="https://arxiv.org/abs/1512.03385" target="_blank">https://arxiv.org/abs/1512.03385</a>
+        </li>
+      </ul>
+      <br><br>
 
-  <hr>
-  <footer> 
-  <p style="font-size: 15px;">To see this project's proposal, click <a href="project_proposal.html">here</a> </p>
-  <p>©2025 Steven An, Vikram Muruganandam, Youngjoon Park</p>
-  </footer>
-</div>
-</div>
+      <hr>
+      <footer>
+        <p style="font-size: 15px;">To see this project's proposal, click <a href="project_proposal.html">here</a>
+        </p>
+        <p>©2025 Steven An, Vikram Muruganandam, Youngjoon Park</p>
+      </footer>
+    </div>
+  </div>
 
-<br><br>
+  <br><br>
 
-</body></html>
+</body>
+
+</html>
