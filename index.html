@@ -319,14 +319,37 @@ Shows the accuracy and loss curves for best model(YOLOv8) over the training epoc
   INSERT TEXT HERE
 </p>
 <div style="text-align: center;">
-<img style="height: 550px;" alt="" src="leaf_output.webp">
+<img style="height: 550px;" alt="" src="val_batch0_pred.jpg">
+<img style="height: 550px;" alt="" src="val_batch1_pred.jpg">
+<img style="height: 550px;" alt="" src="val_batch2_pred.jpg">
 </div>
 <br><br>
 
 <!-- Conclusion  -->
 <h3>Conclusion</h3>
 <p>
-  
+  This report has described a comparative analysis of four distinct deep learning architectures—ResNet50, EfficientNetV2-S, MobileNetV3, and YOLOv8—for the automated 
+  classification of 23 plant disease categories. By utilizing a transfer learning methodology and a dynamic data pipeline involving specific resizing and normalization 
+  techniques, we successfully adapted models pre-trained on ImageNet to the domain of agricultural pathology.
+</p>
+<p>
+  The experimental results offered a significant deviation from the traditional trade-off between computational speed and classification accuracy. 
+  While EfficientNetV2-S provided high accuracy (~98%) as expected from a complex architecture, and MobileNetV3 offered extremely low latency suitable for 
+  edge devices, YOLOv8 emerged as the superior architecture in every metric. Achieving a remarkable classification accuracy of 99.8% while maintaining the fastest 
+  inference speed (6.4ms per image), YOLOv8 demonstrated that modern real-time object detection backbones are exceptionally capable feature extractors for multi-class 
+  classification tasks. This finding suggests that for real-world agricultural applications, where immediate diagnostic feedback is crucial, the YOLOv8 architecture 
+  offers an optimal solution without compromising on precision.
+</p>
+
+<p>
+  <strong>Future Work</strong> <br>
+  To transition this system from a research prototype to a robust field-deployable product, several key enhancements are proposed. Future iterations will prioritize 
+  incorporating "in-the-wild" datasets featuring complex backgrounds, shadows, and varying lighting conditions to ensure the model generalizes well beyond controlled 
+  laboratory images. Additionally, leveraging the high efficiency of the YOLOv8 and MobileNetV3 architectures, we aim to deploy the trained weights onto mobile
+  platforms using frameworks like TensorFlow Lite or ONNX Runtime, enabling offline diagnostics for farmers in remote areas. To further refine classification performance, 
+  a hierarchical approach could be implemented to first identify plant species before diagnosing specific pathologies, thereby reducing false positives between 
+  similar-looking diseases on different crops. Finally, integrating explainability tools such as Grad-CAM will be essential for building trust with agricultural experts, 
+  providing visual confirmation that the model is detecting distinct disease pathology rather than relying on background noise or artifacts.
 </p>
 
 
