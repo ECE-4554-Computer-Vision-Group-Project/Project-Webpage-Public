@@ -101,25 +101,25 @@
       <p>
         Plant diseases pose one of the largest threads to global agriculture, impacting food security worldwide through
         reduced crop yields and causing enormous economic losses. Accurate detection of these
-        diseases on a large scalae is critical in ensuring these diseases are caught as soon as possible and before they
-        can cause significant damage. Traditional methods such as manual human inspection are often time consming and
+        diseases on a large scale is critical in ensuring these diseases are caught as soon as possible and before they
+        can cause significant damage. Traditional methods such as manual human inspection are often time consuming and
         labor intensive,
         making it harder to implement regular checking at large scales. Using machine learning to perform these tasks is
         significantly cheaper, and does not have the same downsides as human inspection. However, ML models often lack
         accuracy and without a human
-        in the loop to take acountability and due to the financial consequences of a malfunction, many users are
+        in the loop to take accountability and due to the financial consequences of a malfunction, many users are
         hesitant to implement this technology. One method around this is to create and curating models that can achiever
-        higher accuracies in plant desease detection.
+        higher accuracies in plant disease detection.
       </p>
 
       <p>
         To do this, project builds upon existing plant disease detection systems by implementing training various models
-        to perform plant desease detction using the same
+        to perform plant disease detection using the same
         dataset. Then, we will compare the performance of these models to each other, and to previous work implementing
-        a plant desease detection by <a
+        a plant disease detection by <a
           href="https://www.kaggle.com/code/atharvaingle/plant-disease-classification-resnet-99-2/notebook">Atharva
           Ingle found here</a>,
-        that implements plant desease classification using RESNET-9. This model was able to achieve an accuracy of
+        that implements plant disease classification using RESNET-9. This model was able to achieve an accuracy of
         99.2%, using a similar dataset. We aim to exceed this accuracy using one or more of the models we will be
         evaluating in this report.
       </p>
@@ -366,13 +366,46 @@
 
       <!-- Results -->
       <h3>Results</h3>
-      <br><br>
 
 
       <!-- Main Results Figure -->
-      <div style="text-align: left; font-size: 25px; margin-top: 1px;">
-        Shows the accuracy and loss curves of models over the training epochs.
-        <br>
+      <div>
+        <p>
+          To evaluate the relative performance and learning stability of the selected architectures,
+          we analyzed the training metrics across all four models over the course of the training duration.
+          Figures (below) presents the comparative trajectories for Training Loss, Validation Loss,
+          Training Accuracy, and Validation Accuracy.
+        </p><br>
+
+        <p>
+          <strong> Accuracy Comparison</strong><br>
+          Both YOLOv8 and EfficientNetV2-S demonstrate rapid convergence,
+          crossing the 90% accuracy threshold within the first few epochs. However, YOLOv8 show in Figure 3
+          ultimately separates itself from the group, reaching a peak validation
+          accuracy of 99.8%. MobileNetV3 closely follows show in Figure 5, stabilizing around 98.87%, confirming its status
+          as a high-precision architecture.
+        </p>
+
+        <p>
+          ResNet50 shows a steady learning curve at 98.52% show in Figure 4, serving as a 
+          reliable baseline. EfficientNetV2, trails slightly lower with an accuracy of 
+          96% show in Figure 6. These visual gaps illustrates the expected trade-off between model lightness and classification 
+          power, although the gap is relatively small.
+        </p><br>
+
+        <p>
+          <strong> Loss Convergence</strong><br>
+          Across all four architectures, the Training Loss (Blue lines) and Validation Loss (Orange lines) decrease steadily.
+          While YOLOv8 and EfficientNetV2 show the sharpest decline in loss, indicating they were able to extract discriminative 
+          features significantly faster than its peers.
+        </p>
+        <p>
+          Crucially, none of the models exhibit significant divergence (where validation loss increases while training loss 
+          continues to decrease). This confirms that our data augmentation and transfer learning strategies successfully 
+          prevented overfitting, even on the larger parameter models. Therefore, these tests confirms that YOLOv8 show in Figure 3
+          is the superior learner for this dataset, achieving the lowest final loss and highest stability, while EfficientNetV2-S
+          still performed pretty well, it still performed the worst among the four models.
+        </p>
         <div style="text-align: center; font-size: 18px; margin-top: 40px;">
           <img src="yolo_result.png" style="height: 800px;">
           <br>
